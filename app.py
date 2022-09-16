@@ -7,7 +7,7 @@ import logging
 
 from aiogram import Bot, Dispatcher, executor, types
 
-API_TOKEN = 'Token'
+API_TOKEN = ''
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -22,9 +22,8 @@ async def send_welcome(message: types.Message):
     """
     This handler will be called when user sends `/start` or `/help` command
     """
-    #await message.reply("Hi!\nI'm EchoBot!\nPowered by aiogram.")
-    await message.answer("Я хочу спатушки")
-    await message.answer_photo(types.InputFile('maxresdefault.jpeg'))
+
+    await message.answer("Hi!\nI'm Botik!.")
 
 
 @dp.message_handler(regexp='(^cat[s]?$|puss)')
@@ -35,12 +34,12 @@ async def cats(message: types.Message):
         await bot.send_photo(
             message.chat.id,
             photo,
-            caption='Cats are here ??',
+            caption='Cats are here 😺',
             reply_to_message_id=message.message_id,
         )
         '''
 
-        await message.reply_photo(photo, caption='Cats are here ??')
+        await message.reply_photo(photo, caption='Cats are here 😺')
 
 
 @dp.message_handler()
